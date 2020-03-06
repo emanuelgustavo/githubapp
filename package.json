@@ -1,0 +1,19 @@
+{
+  "name": "githubapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/emanuelgustavo/githubapp.git",
+  "author": "Emanuel Gustavo Vierne <emanuelgustavovierne@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.7"
+  },
+  "scripts": {
+    "dev": "babel ./main.js -o ./bundle.js -w"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.7"
+  }
+}
