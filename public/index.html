@@ -1,11 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>github App</title>
+  <title>My favorite Repositories</title>
+  <style>
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    li {
+      clear: both;
+      margin-top: 20px;
+    }
+
+    img {
+      width: 80px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    strong {
+      font-size: 20px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
+  <form id="form-repo" action="">
+    <input id="author-name" name="author-name" type="text" placeholder="Enter the author's repository">
+    <input id="repo-name" name="repo-name" type="text" placeholder="Enter the repository's name">    
+    <button type="submit">Add Repository</button>
+  </form>
+  <ul id="list-repo">
+  </ul>
   <script src="./bundle.js"></script>
 </body>
 </html>
