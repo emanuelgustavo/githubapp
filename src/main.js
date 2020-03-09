@@ -1,30 +1,9 @@
 import api from './apiconect.js';
 
 class App{
+
   constructor(){
-    this.repositories = [
-      {
-        repoName: 'Nome Repositorio',
-        repoUrlAvatar: 'https://avatars3.githubusercontent.com/u/29903091?v=4"',
-        repoDescription: 'Descrição do Repositorio',
-        repoCreateDate: '08-03-2020',
-        repoUrlLink: 'https://github.com/emsec/ChameleonMini'
-      },
-      {
-        repoName: 'Nome Repositorio',
-        repoUrlAvatar: 'https://avatars3.githubusercontent.com/u/29903091?v=4"',
-        repoDescription: 'Descrição do Repositorio',
-        repoCreateDate: '08-03-2020',
-        repoUrlLink: 'https://github.com/emsec/ChameleonMini'
-      },
-      {
-        repoName: 'Nome Repositorio',
-        repoUrlAvatar: 'https://avatars3.githubusercontent.com/u/29903091?v=4"',
-        repoDescription: 'Descrição do Repositorio',
-        repoCreateDate: '08-03-2020',
-        repoUrlLink: 'https://github.com/emsec/ChameleonMini'
-      }
-    ]
+    this.repositories = [];
 
     this.formElement = document.getElementById('form-repo');
     this.listElement = document.getElementById('list-repo');
@@ -40,25 +19,25 @@ class App{
 
   async searchRepository(event) {
     event.preventDefault();
-    //await console.log(`Buscando... /${this.inputRepositoryNameElement.value}/${this.inputAuthorNameElement.value}`);
-
+    
     try{ 
       const response = await api.get(`/${this.inputAuthorNameElement.value}/${this.inputRepositoryNameElement.value}`);
       console.log(response);
+      const { name, description, html_url, created_at, owner: { avatar_url } } = response.data;
+
+      this.repositories.push({
+        repoName: name,
+        repoDescription: description,
+        repoCreateDate: created_at,
+        repoUrlLink: html_url,
+        repoUrlAvatar: avatar_url
+      });
+
+      this.renderList();
+
     }catch(error){
       console.warn('Erro!', error);
-    }
-
-    const { name, description, html_url, created_at, owner: { avatar_url } } = response.data;
-
-    this.repositories.push({
-      repoName: name,
-      repoDescription: description,
-      repoCreateDate: created_at,
-      repoUrlLink: html_url,
-      repoUrlAvatar: avatar_url
-    }) 
-    
+    }    
   }
 
   renderList() {
@@ -80,6 +59,7 @@ class App{
 
       let urlRepository = document.createElement('a');
       urlRepository.setAttribute('href', repository.repoUrlLink);
+      urlRepository.appendChild(document.createTextNode('Acessar'));
 
       let listRepoItemlement = document.createElement('li');
       
@@ -90,7 +70,6 @@ class App{
       listRepoItemlement.appendChild(urlRepository);
 
       this.listElement.appendChild(listRepoItemlement);
-
     })
   }
 
