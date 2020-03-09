@@ -69,3 +69,10 @@ B - Configure webpack
           ]
         }
       }
+
+  Update: When I tried do run $yarn dev an EIO error ocurred and I can't fix this. The solution to me was
+  delete all the project files and clone again de repository and re-install all project's dependencies and
+  all works fine.
+
+  $git clone https://github.com/emanuelgustavo/githubapp.git
+  $yarn install

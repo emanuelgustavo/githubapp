@@ -49,9 +49,15 @@ class App{
       console.warn('Erro!', error);
     }
 
-    const { name}
+    const { name, description, html_url, created_at, owner: { avatar_url } } = response.data;
 
-    //this.renderList();
+    this.repositories.push({
+      repoName: name,
+      repoDescription: description,
+      repoCreateDate: created_at,
+      repoUrlLink: html_url,
+      repoUrlAvatar: avatar_url
+    }) 
     
   }
 
@@ -87,6 +93,7 @@ class App{
 
     })
   }
+
 }
 
 new App();
