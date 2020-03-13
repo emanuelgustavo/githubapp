@@ -54,8 +54,38 @@ class App{
       cardImageElement.setAttribute('class', 'card-img-top');
 
       let cardBodyElement = document.createElement('div');
-      cardBodyElement.setAttribute('class', 'card-bodyw');
+      cardBodyElement.setAttribute('class', 'card-body');
 
+      let cardTitleElement = document.createElement('h5');
+      cardTitleElement.setAttribute('class', 'card-title');
+      cardTitleElement.appendChild(document.createTextNode(repository.repoName));
+
+      let cardTextElement = document.createElement('p');
+      cardTextElement.setAttribute('class', 'card-text');
+      cardTextElement.appendChild(document.createTextNode(repository.repoDescription));
+
+      let linkCardElement = document.createElement('a');
+      linkCardElement.setAttribute('class', 'btn btn-outline-primary');
+      linkCardElement.setAttribute('target', '_blank');
+      linkCardElement.setAttribute('href', repository.repoUrlLink);
+      linkCardElement.setAttribute('role', 'button');
+      linkCardElement.appendChild(document.createTextNode('Acessar'));
+      
+      let listRepoItemlement = document.createElement('li');
+      listRepoItemlement.setAttribute('class', 'list-group-item');
+      
+      cardBodyElement.appendChild(cardTitleElement);
+      cardBodyElement.appendChild(cardTextElement);
+      cardBodyElement.appendChild(linkCardElement);
+      
+      cardDivElement.appendChild(cardImageElement);
+      cardDivElement.appendChild(cardBodyElement);
+
+      listRepoItemlement.appendChild(cardDivElement);
+
+      this.listElement.appendChild(listRepoItemlement);
+
+      /*
       let nameRepoElement = document.createElement('strong');
       nameRepoElement.appendChild(document.createTextNode(repository.repoName));
 
@@ -79,6 +109,7 @@ class App{
       listRepoItemlement.appendChild(urlRepository);
 
       this.listElement.appendChild(listRepoItemlement);
+      */
     })
   }
 

@@ -1,3 +1,3 @@
 "use strict";
 
-alert('FUncionando!');
+alert('With webpack, this bundle is not necessary!');
