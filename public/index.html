@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>My favorite Repositories</title>
+  <!-- Now, the styleshhet is based on bootstrap
   <style>
     ul {
       list-style: none;
@@ -30,15 +31,18 @@
       margin: 5px 0;
     }
   </style>
+  -->
 </head>
 <body>
-  <form id="form-repo" action="">
-    <input id="author-name" name="author-name" type="text" placeholder="Enter the author's repository">
-    <input id="repo-name" name="repo-name" type="text" placeholder="Enter the repository's name">    
-    <button type="submit">Add Repository</button>
-  </form>
-  <ul id="list-repo">
-  </ul>
+  <div class="container-fluid mt-1">
+    <form id="form-repo" action="">
+      <input id="author-name" name="author-name" type="text" placeholder="Enter the author's repository">
+      <input id="repo-name" name="repo-name" type="text" placeholder="Enter the repository's name">    
+      <button type="submit">Add Repository</button>
+    </form>
+    <ul id="list-repo">
+    </ul>
+  </div>
   <script src="./bundle.js"></script>
 </body>
 </html>

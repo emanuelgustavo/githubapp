@@ -1,4 +1,5 @@
-import api from './apiconect.js';
+import apiRepositories from './apiconect.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App{
 
@@ -21,7 +22,7 @@ class App{
     event.preventDefault();
     
     try{ 
-      const response = await api.get(`/${this.inputAuthorNameElement.value}/${this.inputRepositoryNameElement.value}`);
+      const response = await apiRepositories.get(`/${this.inputAuthorNameElement.value}/${this.inputRepositoryNameElement.value}`);
       console.log(response);
       const { name, description, html_url, created_at, owner: { avatar_url } } = response.data;
 
@@ -45,8 +46,15 @@ class App{
 
     this.repositories.forEach( repository => {
 
-      let imageElement = document.createElement('img');
-      imageElement.setAttribute('src', repository.repoUrlAvatar);
+      let cardDivElement = document.createElement('div');
+      cardDivElement.setAttribute('style', 'width: 18rem;');
+
+      let cardImageElement = document.createElement('img');
+      cardImageElement.setAttribute('src', repository.repoUrlAvatar);
+      cardImageElement.setAttribute('class', 'card-img-top');
+
+      let cardBodyElement = document.createElement('div');
+      cardBodyElement.setAttribute('class', 'card-bodyw');
 
       let nameRepoElement = document.createElement('strong');
       nameRepoElement.appendChild(document.createTextNode(repository.repoName));
@@ -59,6 +67,7 @@ class App{
 
       let urlRepository = document.createElement('a');
       urlRepository.setAttribute('href', repository.repoUrlLink);
+      urlRepository.setAttribute('target', '_blank');
       urlRepository.appendChild(document.createTextNode('Acessar'));
 
       let listRepoItemlement = document.createElement('li');

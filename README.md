@@ -76,3 +76,37 @@ B - Configure webpack
 
   $git clone https://github.com/emanuelgustavo/githubapp.git
   $yarn install
+
+  5 - Add Bootstrap to my project
+    $yarn add bootstrap
+    //Bootstrap depends on jQuery and Popper, which are specified in the peerDependencies property; this ///means that you will have to make sure to add both of them to your package.json using npm install /////--save jquery popper.js.
+    $yarn add popper.js
+    $yarn add jquery
+    
+    //It's necessary install a loaders for webpack can understand the .css file and style, for this,
+    // I add the follow loaders:
+    $yarn add style-loader
+    $yarn add css-loader
+    //how the webpack documentation recommend's, it's better combine the css-loader with style-loader.
+
+    I followed the instructions on the bootstrap webpack tutorial for importing compiled CSS:
+
+    Importing Compiled CSS
+    Alternatively, you may use Bootstrap’s ready-to-use CSS by simply adding this line to your project’s entry point:
+
+
+    import 'bootstrap/dist/css/bootstrap.min.css'; //add this to main.js
+
+    In this case you may use your existing rule for css without any special modifications to webpack config, except you don’t need sass-loader just style-loader and css-loader.
+
+    //add code below in webpack.config.js
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        }
+      ]
+    }
+
+

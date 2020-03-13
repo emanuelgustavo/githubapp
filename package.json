@@ -6,13 +6,13 @@
   "author": "Emanuel Gustavo Vierne <emanuelgustavovierne@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "axios": "^0.19.2",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/plugin-transform-async-to-generator": "^7.8.3",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
+    "axios": "^0.19.2",
     "babel-loader": "^8.0.6",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
@@ -21,5 +21,12 @@
   "scripts": {
     "dev": "webpack-dev-server --mode=development",
     "build": "webpack --mode=production"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "css-loader": "^3.4.2",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
+    "style-loader": "^1.1.3"
   }
 }
